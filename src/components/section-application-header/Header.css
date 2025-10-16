@@ -1,0 +1,33 @@
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-lang-button {
+  padding: 6px 12px;
+  height: 3vh;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.header-lang-button:hover {
+  background-color: #f2f2f2;
+  border-color: #999;
+}
+
+.header-lang-button-disabled {
+  background-color: #999;
+}
+
+.header-lang-btn.left {
+  border-right: 1px solid #ccc;
+  border-radius: 6px 0 0 6px;
+}
+
+.header-lang-btn.right {
+  border-radius: 0 6px 6px 0;
+}

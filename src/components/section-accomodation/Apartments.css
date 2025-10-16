@@ -1,0 +1,36 @@
+.apartments-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.apartments-wrapper-inner {
+  width: 80%;
+  justify-items: center;
+}
+
+.apartments-card-box {
+  max-width: 500px;
+  background-color: lightgray;
+  margin: 0 auto;
+}
+
+.apartments-card-box-image {
+  height: 40vh;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .apartments-card-box {
+    width: 55%;
+  }
+  .apartments-card-box-image {
+    height: 25vh;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}

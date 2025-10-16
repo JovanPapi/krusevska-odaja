@@ -1,0 +1,16 @@
+.specialities-of-the-house-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../../resources/specialities-of-the-house-images/slika-6.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.specialities-of-the-house-inner-wrapper {
+  width: 70%;
+}

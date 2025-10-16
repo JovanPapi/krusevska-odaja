@@ -1,0 +1,26 @@
+.krusevo-details-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f2ed;
+  padding: 2rem;
+}
+
+.krusevo-details-wrapper-inner {
+  width: 70%;
+}
+
+.krusevo-slideshow-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.krusevo-slideshow-element-image {
+  height: 25vh;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}

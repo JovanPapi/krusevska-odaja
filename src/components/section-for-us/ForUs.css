@@ -1,0 +1,32 @@
+.for-us-wrapper {
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.for-us-inner-wrapper {
+  width: 70%;
+}
+
+.for-us-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.for-us-image {
+  width: 400px;
+  height: 30vh;
+  flex: 0.7;
+}
+
+.for-us-text {
+  color: #9a9a9a;
+  text-align: justify;
+  flex: 1;
+}

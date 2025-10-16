@@ -1,0 +1,19 @@
+.footer-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  gap: 4rem;
+  padding: 2rem;
+  background-color: #20202f;
+}
+
+.footer-wrapper-inner {
+  display: flex;
+  justify-content: center;
+  color: whitesmoke;
+  gap: 2rem;
+}
+
+.footer-container a:hover {
+  background-color: rgb(56, 56, 57);
+}
