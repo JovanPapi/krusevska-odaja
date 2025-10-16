@@ -1,73 +1,29 @@
-# React + TypeScript + Vite
+# UI/UX application for a restaurant (promotive web site)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the skin of the restaurant. It present promotive web site without particular business logic, just user interface and sections to navigate around such as menu of the restaurant, for krushevo, contact section etc.
 
-Currently, two official plugins are available:
+## Notice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This repository is public for review purposes only and represents a commercial project.
+Unauthorized copying, modification, distribution, or commercial use of the code is strictly prohibited without explicit written permission from the copyright holder.
 
-## React Compiler
+Contact: papalazoski.papi@gmail.com
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies
 
-## Expanding the ESLint configuration
+- **TypeScript** – superset of JS, adding static typing
+- **Vite** – tool for building and developing frontend applications
+- **React** – JS library for creating user interfaces
+- **React ecosystem** - Set of libraries from React, for example: react-intl, react-router, axios, react-icons, react-toast etc.
+- **JSDoc** – Files and code documentation for easier navigation and maintanance
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to run
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+In order to run this application use the steps below:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Open terminal in the environment you are using (can be VS code or other) and run **npm install**.
+2. After first command, run **npm run dev** to start the application.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Notice
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The application can run without the backend running, but you wont feel the full experience.
