@@ -6,4 +6,5 @@ export default {
   bracketSameLine: true,
   tabWidth: 2,
   trailingComma: "all",
+  formatOnSave: true,
 };
