@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
@@ -13,8 +13,15 @@ root.render(
   <LanguageSwitcherProvider>
     <ApplicationStoreProvider>
       <BrowserRouter>
+        <Toaster
+          toastOptions={{
+            duration: 2750,
+            position: "top-center",
+            style: { fontSize: "1.2rem" },
+          }}
+        />
         <App />
       </BrowserRouter>
     </ApplicationStoreProvider>
-  </LanguageSwitcherProvider>
+  </LanguageSwitcherProvider>,
 );

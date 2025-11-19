@@ -1,4 +1,6 @@
 import { Layout } from "antd";
+import { Footer } from "antd/es/layout/layout";
+
 import BackToTop from "./components/back-to-top/BackToTop";
 import Accommodation from "./components/section-accomodation/Accommodation";
 import Header from "./components/section-application-header/Header";
@@ -8,7 +10,6 @@ import MapLocation from "./components/section-map-location/MapLocation";
 import RestaurantMenu from "./components/section-menu/RestaurantMenu";
 import PhotoSlider from "./components/section-photo-slider/PhotoSlider";
 import SpecialitiesOfTheHouse from "./components/section-specialities/SpecialitiesOfTheHouse";
-import Footer from "./components/section-footer/Footer";
 
 const { Header: HeaderLayout, Content, Footer: FooterLayout } = Layout;
 
@@ -19,8 +20,7 @@ const App = () => {
         style={{
           height: "fit-content",
           padding: 0,
-        }}
-      >
+        }}>
         <Header />
       </HeaderLayout>
       <Content style={{ padding: 0 }}>

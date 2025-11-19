@@ -1,6 +1,6 @@
 import { FacebookOutlined, InstagramOutlined } from "@ant-design/icons";
-import "./Footer.css";
 import { useIntl } from "react-intl";
+import "./Footer.css";
 
 const Footer = () => {
   const intl = useIntl();
@@ -21,8 +21,7 @@ const Footer = () => {
               display: "flex",
               justifyContent: "center",
               columnGap: "2rem",
-            }}
-          >
+            }}>
             <a href="https://www.instagram.com/papiapartments/?hl=en">
               <InstagramOutlined
                 style={{

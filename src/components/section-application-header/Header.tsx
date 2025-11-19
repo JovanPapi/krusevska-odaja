@@ -3,9 +3,10 @@ import { Button, Drawer, Grid, Menu } from "antd";
 import type { ItemType, MenuItemType } from "antd/es/menu/interface";
 import React, { useState } from "react";
 import { useIntl } from "react-intl";
+
 import logoOdaja from "../../resources/logo-odaja.png";
-import "./Header.css";
 import { useLanguageSwitcherSelector } from "../../store/LanguageSwitcher";
+import "./Header.css";
 
 const { useBreakpoint } = Grid;
 
@@ -15,8 +16,7 @@ const Header: React.FC = () => {
 
   const intl = useIntl();
 
-  const { handleChangeLanguage, currentLanguage } =
-    useLanguageSwitcherSelector();
+  const { handleChangeLanguage, currentLanguage } = useLanguageSwitcherSelector();
 
   const menuItems: ItemType<MenuItemType>[] = [
     {
@@ -88,10 +88,7 @@ const Header: React.FC = () => {
     {
       key: "contact",
       label: (
-        <a
-          href="#contact-information"
-          style={{ color: "rgba(206, 212, 212, 1)" }}
-        >
+        <a href="#contact-information" style={{ color: "rgba(206, 212, 212, 1)" }}>
           {intl.formatMessage({
             id: "section.home.menu.contact",
             defaultMessage: "Contact",
@@ -101,10 +98,7 @@ const Header: React.FC = () => {
     },
   ];
 
-  const handleSwitchLanguage = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    value: "en" | "mk"
-  ) => {
+  const handleSwitchLanguage = (event: React.MouseEvent<HTMLButtonElement>, value: "en" | "mk") => {
     event.preventDefault();
 
     handleChangeLanguage(value);
@@ -116,8 +110,7 @@ const Header: React.FC = () => {
         style={{
           display: "flex",
           width: "100%",
-        }}
-      >
+        }}>
         <div style={{ display: "flex", flex: 1, justifyContent: "center" }}>
           <h2 style={{ color: "white" }}>
             {intl.formatMessage({
@@ -130,46 +123,28 @@ const Header: React.FC = () => {
 
         <div style={{ display: "flex" }}>
           <button
-            className={`header-lang-button left ${
-              currentLanguage !== "en" ? "header-lang-button-disabled" : ""
-            }`}
-            onClick={(event) => handleSwitchLanguage(event, "en")}
-          >
+            className={`header-lang-button left ${currentLanguage !== "en" ? "header-lang-button-disabled" : ""}`}
+            onClick={(event) => handleSwitchLanguage(event, "en")}>
             en
           </button>
           <button
-            className={`header-lang-button right ${
-              currentLanguage !== "mk" ? "header-lang-button-disabled" : ""
-            }`}
-            onClick={(event) => handleSwitchLanguage(event, "mk")}
-          >
+            className={`header-lang-button right ${currentLanguage !== "mk" ? "header-lang-button-disabled" : ""}`}
+            onClick={(event) => handleSwitchLanguage(event, "mk")}>
             mk
           </button>
         </div>
       </div>
 
       {screens.md === true ? (
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          items={menuItems}
-          style={{ width: "100%", justifyContent: "center" }}
-        />
+        <Menu theme="dark" mode="horizontal" items={menuItems} style={{ width: "100%", justifyContent: "center" }} />
       ) : (
         <>
           <Button
             type="text"
-            icon={
-              <MenuOutlined style={{ fontSize: "1.5rem", color: "white" }} />
-            }
+            icon={<MenuOutlined style={{ fontSize: "1.5rem", color: "white" }} />}
             onClick={() => setDrawerVisible(true)}
           />
-          <Drawer
-            title="Krusevska odaja"
-            placement="top"
-            onClose={() => setDrawerVisible(false)}
-            open={drawerVisible}
-          >
+          <Drawer title="Krusevska odaja" placement="top" onClose={() => setDrawerVisible(false)} open={drawerVisible}>
             <Menu
               mode="vertical"
               items={menuItems}

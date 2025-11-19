@@ -1,4 +1,5 @@
 import axios, { type AxiosResponse } from "axios";
+import toast from "react-hot-toast";
 
 const BASE_URL = "http://localhost:8080";
 type MethodType = "GET" | "POST" | "DELETE" | "UPDATE";
@@ -7,11 +8,7 @@ const axiosInstance = axios.create({
   baseURL: BASE_URL,
 });
 
-const axiosApi = async <T>(
-  url: string,
-  method: MethodType = "GET",
-  data: any = null
-): Promise<T> => {
+const axiosApi = async <T>(url: string, method: MethodType = "GET", data: unknown = null): Promise<T> => {
   try {
     const response: AxiosResponse<T> = await axiosInstance({
       baseURL: `${BASE_URL + url}`,
@@ -20,7 +17,7 @@ const axiosApi = async <T>(
     });
     return response.data;
   } catch (error) {
-    console.error("Error was thrown:", error);
+    toast.error("An error occurred while processing your request.");
     throw error;
   }
 };

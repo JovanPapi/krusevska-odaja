@@ -1,4 +1,5 @@
 import { Carousel } from "antd";
+
 import photo1 from "../../resources/home-images/slika-1.jpg";
 import photo2 from "../../resources/home-images/slika-2.jpg";
 import photo4 from "../../resources/home-images/slika-4.jpg";
@@ -10,13 +11,7 @@ const PhotoSlider = () => {
 
   return (
     <div id="photo-slider" className="photo-slider-wrapper">
-      <Carousel
-        effect="fade"
-        autoplay={true}
-        autoplaySpeed={1500}
-        arrows={true}
-        pauseOnHover={false}
-      >
+      <Carousel effect="fade" autoplay={true} autoplaySpeed={1500} arrows={true} pauseOnHover={false}>
         {photoSlider.map((photo, index) => (
           <div style={{ height: "100%", width: "100%", overflow: "hidden" }}>
             <img

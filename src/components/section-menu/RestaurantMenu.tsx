@@ -2,11 +2,13 @@ import { MenuOutlined } from "@ant-design/icons";
 import { Button, Col, Drawer, Grid, Menu, Pagination, Row } from "antd";
 import type { ItemType, MenuItemType } from "antd/es/menu/interface";
 import { useState } from "react";
+import { useIntl } from "react-intl";
+
 import { menuProductImages } from "../../resources/foodImagesState";
 import { useApplicationStore } from "../../store/ApplicationStore";
+
 import MenuProductItem from "./MenuProductItem";
 import "./RestaurantMenu.css";
-import { useIntl } from "react-intl";
 
 const { useBreakpoint } = Grid;
 
@@ -31,10 +33,7 @@ const RestaurantMenu = () => {
     .filter((p) => p.productCategory === productCategory)
     .slice((current - 1) * pageSize, current * pageSize);
 
-  const currentProductsImages = menuProductImages[productCategory].slice(
-    (current - 1) * pageSize,
-    current * pageSize
-  );
+  const currentProductsImages = menuProductImages[productCategory].slice((current - 1) * pageSize, current * pageSize);
 
   const menuItems: ItemType<MenuItemType>[] = [
     {
@@ -156,8 +155,7 @@ const RestaurantMenu = () => {
           <h1
             style={{
               color: "#383848",
-            }}
-          >
+            }}>
             {intl.formatMessage({
               id: "section.menu.h1",
               defaultMessage: "Our special menu",
@@ -166,8 +164,7 @@ const RestaurantMenu = () => {
           <p style={{ color: "#9a9a9a", fontWeight: "bold" }}>
             {intl.formatMessage({
               id: "section.menu.p",
-              defaultMessage:
-                "Our menu consists of various traditional and modern food",
+              defaultMessage: "Our menu consists of various traditional and modern food",
             })}
           </p>
         </div>
@@ -191,17 +188,14 @@ const RestaurantMenu = () => {
           <>
             <Button
               type="text"
-              icon={
-                <MenuOutlined style={{ fontSize: "1.5rem", color: "black" }} />
-              }
+              icon={<MenuOutlined style={{ fontSize: "1.5rem", color: "black" }} />}
               onClick={() => setDrawerVisible(true)}
             />
             <Drawer
               title="Krusevska Odaja menu"
               placement="top"
               onClose={() => setDrawerVisible(false)}
-              open={drawerVisible}
-            >
+              open={drawerVisible}>
               <Menu
                 mode="vertical"
                 items={menuItems}
@@ -217,26 +211,18 @@ const RestaurantMenu = () => {
             paddingLeft: "1rem",
             paddingRight: "1rem",
             paddingTop: "4rem",
-          }}
-        >
+          }}>
           <Row gutter={[20, 20]}>
             {currentProducts.map((p, index) => (
               <Col xs={12} sm={12} md={12} lg={6} key={index}>
-                <MenuProductItem
-                  product={p}
-                  productImage={currentProductsImages[index]}
-                />
+                <MenuProductItem product={p} productImage={currentProductsImages[index]} />
               </Col>
             ))}
           </Row>
           <Pagination
             current={current}
             pageSize={pageSize}
-            total={
-              store.listOfProducts.filter(
-                (p) => p.productCategory === productCategory
-              ).length
-            }
+            total={store.listOfProducts.filter((p) => p.productCategory === productCategory).length}
             onChange={onPaginationChange}
             showSizeChanger={false}
             style={{

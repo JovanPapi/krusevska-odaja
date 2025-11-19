@@ -1,11 +1,5 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  useTransition,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useState, useTransition, type ReactNode } from "react";
+
 import { RestServices } from "../api/services";
 import type { Product } from "../models/Product";
 
@@ -29,7 +23,7 @@ const ApplicationStoreProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     startTransition(() => {
-      RestServices.krusevska_odaja_ProductController
+      RestServices.productController
         .getAllProducts()
         .then((products) => {
           setListOfProducts(products);
@@ -38,11 +32,7 @@ const ApplicationStoreProvider = ({ children }: { children: ReactNode }) => {
     });
   }, []);
 
-  return (
-    <ApplicationStore.Provider value={{ listOfProducts, isPending }}>
-      {children}
-    </ApplicationStore.Provider>
-  );
+  return <ApplicationStore.Provider value={{ listOfProducts, isPending }}>{children}</ApplicationStore.Provider>;
 };
 
 export default ApplicationStoreProvider;

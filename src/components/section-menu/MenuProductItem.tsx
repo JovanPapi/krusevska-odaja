@@ -1,9 +1,10 @@
 import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
-import type { Product } from "../../models/Product";
-import "./RestaurantMenu.css";
 import { useIntl } from "react-intl";
+
+import type { Product } from "../../models/Product";
 import { useLanguageSwitcherSelector } from "../../store/LanguageSwitcher";
+import "./RestaurantMenu.css";
 
 interface MenuProductsProps {
   product: Product;
@@ -17,13 +18,7 @@ const MenuProductItem = ({ product, productImage }: MenuProductsProps) => {
     <Card
       key={product.uuid}
       hoverable={false}
-      cover={
-        <img
-          alt={productImage}
-          src={productImage}
-          className="menu-card-image"
-        />
-      }
+      cover={<img alt={productImage} src={productImage} className="menu-card-image" />}
       actions={[
         <span>{product.description === "" ? "/" : product.description}</span>,
         <span>{`${product.price} ${intl.formatMessage({
@@ -33,11 +28,8 @@ const MenuProductItem = ({ product, productImage }: MenuProductsProps) => {
       ]}
       styles={{
         body: { padding: "24px 5px 24px 5px" },
-      }}
-    >
-      <Meta
-        title={currentLanguage === "en" ? product.name : product.nameTranslated}
-      />
+      }}>
+      <Meta title={currentLanguage === "en" ? product.name : product.nameTranslated} />
     </Card>
   );
 };

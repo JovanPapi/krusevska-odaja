@@ -1,9 +1,9 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { IntlProvider } from "react-intl";
+
 import en from "../translations/en.json";
 import mk from "../translations/mk.json";
 
-// TODO: Da se do-implementira logikata za preveduvanje na stranata na mk i en (da se prevedi tekstot vo mk.json i da se implementira intl.formatMessage.....)
 interface LanguageSwitcherProps {
   currentLanguage: "en" | "mk";
   handleChangeLanguage: (selectedLanguage: "en" | "mk") => void;
@@ -15,12 +15,10 @@ const initialState: LanguageSwitcherProps = {
 };
 
 /**  Function that creates the context, storing information (global state) that can be used across all components. */
-const LanguageSwitcherStore =
-  createContext<LanguageSwitcherProps>(initialState);
+const LanguageSwitcherStore = createContext<LanguageSwitcherProps>(initialState);
 
 /** Function that returns the Context of LanguageSwitcherStore.tsx. */
-export const useLanguageSwitcherSelector = () =>
-  useContext(LanguageSwitcherStore);
+export const useLanguageSwitcherSelector = () => useContext(LanguageSwitcherStore);
 
 /** Functional component that serves as a Provider for language state across all components.
  * @param {ReactNode} children Presents everything that is rendered, all components, wrapped in providers to use states and functions on global level.
@@ -28,8 +26,7 @@ export const useLanguageSwitcherSelector = () =>
 function LanguageSwitcherProvider({ children }: { children: ReactNode }) {
   const [currentLanguage, setCurrentLanguage] = useState<"en" | "mk">("en");
 
-  const handleChangeLanguage = (selectedLanguage: "en" | "mk") =>
-    setCurrentLanguage(selectedLanguage);
+  const handleChangeLanguage = (selectedLanguage: "en" | "mk") => setCurrentLanguage(selectedLanguage);
 
   const messages = {
     en: en,
@@ -38,9 +35,7 @@ function LanguageSwitcherProvider({ children }: { children: ReactNode }) {
 
   return (
     <IntlProvider locale={currentLanguage} messages={messages[currentLanguage]}>
-      <LanguageSwitcherStore.Provider
-        value={{ currentLanguage, handleChangeLanguage }}
-      >
+      <LanguageSwitcherStore.Provider value={{ currentLanguage, handleChangeLanguage }}>
         {children}
       </LanguageSwitcherStore.Provider>
     </IntlProvider>
