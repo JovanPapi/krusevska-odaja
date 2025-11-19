@@ -7,12 +7,7 @@ const MapLocation = () => {
   return (
     <APIProvider apiKey={API_KEY}>
       <div style={{ width: "100%", height: 500 }}>
-        <Map
-          defaultZoom={13}
-          defaultCenter={markerLocation}
-          scrollwheel={false}
-          zoom={15}
-        >
+        <Map defaultZoom={13} defaultCenter={markerLocation} scrollwheel={false} zoom={15}>
           <Marker position={markerLocation} />
         </Map>
       </div>

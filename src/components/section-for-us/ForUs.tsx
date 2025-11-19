@@ -1,5 +1,6 @@
 import { useIntl } from "react-intl";
-import photo_1 from "../../resources/for-us-images/slika-5.jpg";
+
+import photo1 from "../../resources/for-us-images/slika-5.jpg";
 
 import "./ForUs.css";
 
@@ -14,8 +15,7 @@ const ForUs = () => {
             textAlign: "center",
             marginBottom: "1.5rem",
             color: "#383848",
-          }}
-        >
+          }}>
           {intl.formatMessage({
             id: "section.forUs.title",
             defaultMessage: "Welcome to Krusevska Odaja",
@@ -25,12 +25,10 @@ const ForUs = () => {
           style={{
             textAlign: "center",
             color: "#9a9a9a",
-          }}
-        >
+          }}>
           {intl.formatMessage({
             id: "section.forUs.h5",
-            defaultMessage:
-              "The best ethic & traditional restaurant in city Krusevo",
+            defaultMessage: "The best ethic & traditional restaurant in city Krusevo",
           })}
         </h5>
 
@@ -40,7 +38,7 @@ const ForUs = () => {
               id: "section.forUs.p",
             })}
           </p>
-          <img alt={photo_1} src={photo_1} className="for-us-image" />
+          <img alt={photo1} src={photo1} className="for-us-image" />
         </div>
       </div>
     </div>

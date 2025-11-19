@@ -1,13 +1,12 @@
 import { useIntl } from "react-intl";
-import {
-  papiApartmentImages,
-  vilaMunteImages,
-} from "../../resources/apartmentImagesState";
+
+import { papiApartmentImages, vilaMunteImages } from "../../resources/apartmentImagesState";
+
 import AccommodationCardBox from "./AccommodationCardBox";
 import "./Apartments.css";
 import SocialMediaLink from "./SocialMediaLink";
 
-const Accommodation: React.FC = () => {
+const Accommodation = () => {
   const intl = useIntl();
 
   return (
@@ -17,8 +16,7 @@ const Accommodation: React.FC = () => {
           style={{
             marginBottom: "3rem",
             color: "#383848",
-          }}
-        >
+          }}>
           {intl.formatMessage({
             id: "section.accommodation.title",
             defaultMessage: "Accommodation",
@@ -31,8 +29,7 @@ const Accommodation: React.FC = () => {
             flexWrap: "wrap",
             gap: "4rem",
             alignItems: "center",
-          }}
-        >
+          }}>
           <AccommodationCardBox
             title={intl.formatMessage({
               id: "section.accommodation.box.papi.title",
@@ -55,9 +52,7 @@ const Accommodation: React.FC = () => {
               id: "section.accommodation.box.munte.title",
               defaultMessage: "Vila La Munte",
             })}
-            socialMediaLink={
-              <SocialMediaLink instagramLink="https://www.instagram.com/villalamunte/?hl=en" />
-            }
+            socialMediaLink={<SocialMediaLink instagramLink="https://www.instagram.com/villalamunte/?hl=en" />}
             description={intl.formatMessage({
               id: "section.accommodation.box.munte.desc",
               defaultMessage: "In Krushevo, but same as home!",

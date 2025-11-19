@@ -1,3 +1,5 @@
+import type React from "react";
+
 export interface ApartmentSectionProps {
   title: string;
   socialMediaLink: React.ReactNode;

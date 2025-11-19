@@ -1,9 +1,10 @@
 import { Card } from "antd";
+import { useIntl } from "react-intl";
+
 import krusevoImg from "../../resources/for-krusevo/krusevo.webp";
 import makedoniumImg from "../../resources/for-krusevo/makedonium.jpg";
 import paragladingImg from "../../resources/for-krusevo/paraglading.jpg";
 import "./KrusevoDetails.css";
-import { useIntl } from "react-intl";
 
 const { Meta } = Card;
 
@@ -17,8 +18,7 @@ const KrusevoDetails = () => {
           style={{
             textAlign: "center",
             color: "#383848",
-          }}
-        >
+          }}>
           {intl.formatMessage({
             id: "section.for.krusevo.h1",
             defaultMessage: "For Krusevo",
@@ -28,8 +28,7 @@ const KrusevoDetails = () => {
           style={{
             textAlign: "center",
             color: "#9a9a9a",
-          }}
-        >
+          }}>
           {intl.formatMessage({
             id: "section.for.krusevo.h5",
           })}
@@ -39,14 +38,7 @@ const KrusevoDetails = () => {
           <Card
             hoverable
             style={{ maxWidth: 350, minWidth: 300 }}
-            cover={
-              <img
-                alt="krusevo"
-                src={krusevoImg}
-                className="krusevo-slideshow-element-image"
-              />
-            }
-          >
+            cover={<img alt="krusevo" src={krusevoImg} className="krusevo-slideshow-element-image" />}>
             <Meta
               title={
                 <h4 style={{ margin: 0 }}>
@@ -65,14 +57,7 @@ const KrusevoDetails = () => {
           <Card
             hoverable
             style={{ maxWidth: 350, minWidth: 300 }}
-            cover={
-              <img
-                alt="makedonium"
-                src={makedoniumImg}
-                className="krusevo-slideshow-element-image"
-              />
-            }
-          >
+            cover={<img alt="makedonium" src={makedoniumImg} className="krusevo-slideshow-element-image" />}>
             <Meta
               title={
                 <h4 style={{ margin: 0 }}>
@@ -91,14 +76,7 @@ const KrusevoDetails = () => {
           <Card
             hoverable
             style={{ maxWidth: 350, minWidth: 300 }}
-            cover={
-              <img
-                alt="paraglading"
-                src={paragladingImg}
-                className="krusevo-slideshow-element-image"
-              />
-            }
-          >
+            cover={<img alt="paraglading" src={paragladingImg} className="krusevo-slideshow-element-image" />}>
             <Meta
               title={
                 <h4 style={{ margin: 0 }}>

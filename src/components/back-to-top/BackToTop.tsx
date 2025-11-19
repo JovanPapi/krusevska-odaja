@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Button } from "antd";
 import { UpOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import { useEffect, useState } from "react";
 
 const BackToTop = () => {
   const [visible, setVisible] = useState(false);

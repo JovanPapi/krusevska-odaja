@@ -1,13 +1,13 @@
 import { Card, Col, Row } from "antd";
-import { menuProductImages } from "../../resources/foodImagesState";
-
 import Meta from "antd/es/card/Meta";
-import { useApplicationStore } from "../../store/ApplicationStore";
-import "./SpecialitiesOfTheHouse.css";
 import { useIntl } from "react-intl";
-import { useLanguageSwitcherSelector } from "../../store/LanguageSwitcher";
 
-const SpecialitiesOfTheHouse: React.FC = () => {
+import { menuProductImages } from "../../resources/foodImagesState";
+import { useApplicationStore } from "../../store/ApplicationStore";
+import { useLanguageSwitcherSelector } from "../../store/LanguageSwitcher";
+import "./SpecialitiesOfTheHouse.css";
+
+const SpecialitiesOfTheHouse = () => {
   const intl = useIntl();
 
   const products = useApplicationStore();
@@ -15,7 +15,7 @@ const SpecialitiesOfTheHouse: React.FC = () => {
   const { currentLanguage } = useLanguageSwitcherSelector();
 
   const specialitiesOfTheHouse = products.listOfProducts.filter(
-    (product) => product.productCategory === "SPECIALITIES"
+    (product) => product.productCategory === "SPECIALITIES",
   );
 
   const specialitiesProductImages = menuProductImages["SPECIALITIES"];
@@ -27,8 +27,7 @@ const SpecialitiesOfTheHouse: React.FC = () => {
           <h1
             style={{
               color: "#ffbc2b",
-            }}
-          >
+            }}>
             {intl.formatMessage({
               id: "section.specialities.h1",
               defaultMessage: "Our Specialities",
@@ -59,14 +58,11 @@ const SpecialitiesOfTheHouse: React.FC = () => {
                     src={specialitiesProductImages[index]}
                     style={{ height: "220px", objectFit: "cover" }}
                   />
-                }
-              >
+                }>
                 <Meta
                   title={
                     <span style={{ fontWeight: "bold", color: "#383848" }}>
-                      {currentLanguage === "en"
-                        ? product.name
-                        : product.nameTranslated}
+                      {currentLanguage === "en" ? product.name : product.nameTranslated}
                     </span>
                   }
                 />
