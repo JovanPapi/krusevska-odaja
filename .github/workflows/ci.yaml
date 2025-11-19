@@ -1,0 +1,33 @@
+name: CI configuration # Name of the workflow
+
+on: # Tells GitHub Actions when to run this workflow
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs: # Defines the jobs to be run in this workflow
+  build-and-check: # Name of the job
+    runs-on: ubuntu-latest # Specifies the type of runner to use for the job (virtual machine)
+
+    steps: # Steps to be executed in the job. Each step can run either commands or use an action.
+      - name: Checkout code # Step to checkout the repository code
+        uses: actions/checkout@v4 # Predefined actions (clone, fetch etc.). This is key step for most workflows. Without this, the workflow will not have access to your repository code or execute npm ci, npm build etc.
+
+      - name: Setup Node.js # We need to setup Node.js environment to run our JavaScript/TypeScript code, install dependencies and build the project. Npm comes bundled with Node.js
+        uses: actions/setup-node@v4
+        with: # Configuration options for the action
+          node-version: "24.10.0"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci # Installs the dependencies defined in package-lock.json. Faster and more reliable than npm install for CI/CD workflows.
+
+      - name: Run Typescript checks
+        run: npm run type-check
+
+      - name: Run lint checks
+        run: npm run lint
+
+      - name: Build project
+        run: npm run build
