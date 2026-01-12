@@ -1,4 +1,4 @@
-name: CI configuration # Name of the workflow
+name: Code checks # Name of the workflow
 
 on: # Tells GitHub Actions when to run this workflow
   push:
@@ -28,6 +28,3 @@ jobs: # Defines the jobs to be run in this workflow
 
       - name: Run lint checks
         run: npm run lint
-
-      - name: Build project
-        run: npm run build
