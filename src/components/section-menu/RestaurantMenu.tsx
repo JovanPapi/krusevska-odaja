@@ -1,11 +1,11 @@
 import { MenuOutlined } from "@ant-design/icons";
-import { Button, Col, Drawer, Grid, Menu, Pagination, Row } from "antd";
+import { Button, Col, Drawer, Grid, Menu, Pagination, Row, type MenuProps } from "antd";
 import type { ItemType, MenuItemType } from "antd/es/menu/interface";
 import { useState } from "react";
 import { useIntl } from "react-intl";
 
 import { menuProductImages } from "../../resources/foodImagesState";
-import { useApplicationStore } from "../../store/ApplicationStore";
+import useAppStore from "../../store/ApplicationStore";
 
 import MenuProductItem from "./MenuProductItem";
 import "./RestaurantMenu.css";
@@ -19,9 +19,11 @@ const RestaurantMenu = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const pageSize = 8;
 
-  const store = useApplicationStore();
+  const [currentMenu, setCurrentMenu] = useState<string>("SALADS");
 
-  const [productCategory, setProductCategory] = useState("SALADS");
+  const { listOfProducts } = useAppStore();
+
+  const [productCategory, setProductCategory] = useState<string>("SALADS");
 
   const screens = useBreakpoint();
 
@@ -29,7 +31,7 @@ const RestaurantMenu = () => {
     setCurrent(page);
   };
 
-  const currentProducts = store.listOfProducts
+  const currentProducts = listOfProducts
     .filter((p) => p.productCategory === productCategory)
     .slice((current - 1) * pageSize, current * pageSize);
 
@@ -148,6 +150,10 @@ const RestaurantMenu = () => {
     },
   ];
 
+  const onClick: MenuProps["onClick"] = (e) => {
+    setCurrentMenu(e.key);
+  };
+
   return (
     <div className="menu-wrapper" id="menu">
       <div className="menu-wrapper-inner">
@@ -174,6 +180,8 @@ const RestaurantMenu = () => {
             theme="light"
             mode="horizontal"
             items={menuItems}
+            selectedKeys={[currentMenu]}
+            onClick={onClick}
             style={{
               borderRadius: "1rem",
               width: "100%",
@@ -222,7 +230,7 @@ const RestaurantMenu = () => {
           <Pagination
             current={current}
             pageSize={pageSize}
-            total={store.listOfProducts.filter((p) => p.productCategory === productCategory).length}
+            total={listOfProducts.filter((p) => p.productCategory === productCategory).length}
             onChange={onPaginationChange}
             showSizeChanger={false}
             style={{

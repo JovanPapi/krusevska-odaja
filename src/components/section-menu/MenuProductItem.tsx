@@ -16,7 +16,7 @@ const MenuProductItem = ({ product, productImage }: MenuProductsProps) => {
 
   return (
     <Card
-      key={product.uuid}
+      key={product.name}
       hoverable={false}
       cover={<img alt={productImage} src={productImage} className="menu-card-image" />}
       actions={[
