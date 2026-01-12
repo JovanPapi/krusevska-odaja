@@ -1,4 +1,4 @@
-name: Code checks # Name of the workflow
+name: Code check # Name of the workflow
 
 on: # Tells GitHub Actions when to run this workflow
   push:
