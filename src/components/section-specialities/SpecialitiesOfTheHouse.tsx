@@ -3,20 +3,18 @@ import Meta from "antd/es/card/Meta";
 import { useIntl } from "react-intl";
 
 import { menuProductImages } from "../../resources/foodImagesState";
-import { useApplicationStore } from "../../store/ApplicationStore";
+import useAppStore from "../../store/ApplicationStore";
 import { useLanguageSwitcherSelector } from "../../store/LanguageSwitcher";
 import "./SpecialitiesOfTheHouse.css";
 
 const SpecialitiesOfTheHouse = () => {
   const intl = useIntl();
 
-  const products = useApplicationStore();
+  const { listOfProducts } = useAppStore();
 
   const { currentLanguage } = useLanguageSwitcherSelector();
 
-  const specialitiesOfTheHouse = products.listOfProducts.filter(
-    (product) => product.productCategory === "SPECIALITIES",
-  );
+  const specialitiesOfTheHouse = listOfProducts.filter((product) => product.productCategory === "SPECIALITIES");
 
   const specialitiesProductImages = menuProductImages["SPECIALITIES"];
 
@@ -44,7 +42,7 @@ const SpecialitiesOfTheHouse = () => {
 
         <Row gutter={[24, 24]} justify="center">
           {specialitiesOfTheHouse.map((product, index) => (
-            <Col key={product.uuid} xs={24} sm={12} md={8} lg={6}>
+            <Col key={product.name} xs={24} sm={12} md={8} lg={6}>
               <Card
                 hoverable
                 style={{

@@ -22,21 +22,10 @@ const Header: React.FC = () => {
     {
       key: "home",
       label: (
-        <a href="#photo-slider" style={{ color: "rgba(206, 212, 212, 1)" }}>
+        <a href="#home" style={{ color: "rgba(206, 212, 212, 1)" }}>
           {intl.formatMessage({
             id: "section.home.menu.home",
             defaultMessage: "Home",
-          })}
-        </a>
-      ),
-    },
-    {
-      key: "for-us",
-      label: (
-        <a href="#for-us" style={{ color: "rgba(206, 212, 212, 1)" }}>
-          {intl.formatMessage({
-            id: "section.home.menu.forUs",
-            defaultMessage: "For us",
           })}
         </a>
       ),

@@ -1,11 +1,12 @@
-import { Ingredient } from "./Ingredient";
+import type { Ingredient } from "./Ingredient";
 
-export class Product {
-  uuid?: string;
-  name: string = "";
-  nameTranslated: string = "";
-  price: number = 0;
-  productCategory: string = "";
-  description: string = "";
-  listOfIngredients: Ingredient[] = [];
+export interface Product {
+  // uuid?: string; ne e potrebno ako e samo za na FE
+  name: string;
+  nameTranslated: string;
+  price: number;
+  description: string;
+  productCategory: string;
+  listOfIngredients: Ingredient[];
+  // listOfOrderProducts: OrderProduct[] ne e potrebno ako e samo za na FE
 }
